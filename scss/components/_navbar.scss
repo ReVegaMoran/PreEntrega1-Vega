@@ -56,12 +56,3 @@
   }
 }
 
-.navbar-nav li + li::before {
-  content: "";
-  display: inline-block;
-  width: 1px; height: 1rem;
-  background: rgba($text, .2);
-  margin: 0 .25rem;
-  vertical-align: middle;
-}
-
