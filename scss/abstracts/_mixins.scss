@@ -1,0 +1,33 @@
+@use "variables" as *;
+
+
+@mixin down($bp) {
+  $size: map-get($breakpoints, $bp);
+  @media (max-width: $size) { @content; }
+}
+
+
+@mixin up($bp) {
+  $size: map-get($breakpoints, $bp);
+  @media (min-width: $size) { @content; }
+}
+
+
+@mixin container($max: 1140px) {
+  margin-inline: auto;
+  max-width: $max;
+  padding-inline: $sp-3;
+}
+
+
+@mixin button($bg, $color: #fff) {
+  background-color: $bg;
+  color: $color;
+  border: none;
+  border-radius: .75rem;
+  padding: .65rem 1rem;
+  font-weight: 600;
+  transition: transform .18s ease, box-shadow .18s ease, background-color .2s ease;
+  &:hover, &:focus-visible { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(0,0,0,.12); }
+  &:active { transform: translateY(0); box-shadow: none; }
+}

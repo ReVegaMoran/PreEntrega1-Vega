@@ -1,0 +1,30 @@
+@use "../abstracts/mixins" as m;
+@use "../abstracts/variables" as *;
+@use "../abstracts/functions" as f;
+
+// Botón sólido de marca
+.btn-accent {
+  @include m.button($accent, f.smart-text($accent));
+  text-decoration: none;
+
+  // tamaño grande estilo Bootstrap
+  padding: .8rem 1.25rem;
+  font-size: 1.05rem;
+}
+
+// Variante contorno (por si la quieres en otras páginas)
+.btn-accent-outline {
+  color: $accent;
+  background: transparent;
+  border: 2px solid $accent;
+  border-radius: .75rem;
+  padding: .7rem 1.1rem;
+  font-weight: 600;
+  transition: color .2s ease, background-color .2s ease, transform .18s ease;
+
+  &:hover, &:focus-visible {
+    background-color: $accent;
+    color: f.smart-text($accent);
+    transform: translateY(-1px);
+  }
+}

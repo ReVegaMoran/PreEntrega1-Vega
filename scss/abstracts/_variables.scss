@@ -1,0 +1,23 @@
+
+$font-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+$bg: #f0f4f8;
+$text: #1e293b;
+$accent: #0e7490;
+$muted: #64748b;
+
+$brand-colors: (
+  "text": $text,
+  "accent": $accent,
+  "muted": $muted
+);
+
+
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+
+$sp-1: .25rem; $sp-2: .5rem; $sp-3: 1rem; $sp-4: 1.5rem; $sp-5: 2rem;

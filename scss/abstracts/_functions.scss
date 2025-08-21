@@ -1,0 +1,4 @@
+
+@function smart-text($bg, $dark: #111, $light: #fff) {
+  @return if( (red($bg)*0.299 + green($bg)*0.587 + blue($bg)*0.114) > 186, $dark, $light );
+}
