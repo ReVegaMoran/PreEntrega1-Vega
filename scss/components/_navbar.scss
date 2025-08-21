@@ -2,17 +2,66 @@
 @use "../abstracts/mixins" as m;
 @use "../abstracts/functions" as f;
 
-
+/* Placeholder para ejemplos de @extend */
 %btn-base { border-radius: 1rem; font-weight: 700; letter-spacing: .2px; }
-
-
 .btn-primary { @extend %btn-base; }
 
+/* ===== Navbar ===== */
+.navbar {
+  background-color: #f8f9fa; // combina con bg-light de Bootstrap
+}
 
 .navbar-brand { color: $text; font-weight: 700; }
-.nav-link {
-  font-weight: 500;
-  transition: color .3s;
-  &:hover { color: $accent; text-decoration: underline; }
-  &[aria-current="page"] { color: $accent; text-decoration: underline; }
+
+/* Quita viñetas y sangrías del menú, alinea y separa items */
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  padding-left: 0;
+  margin-bottom: 0;
+
+  > li { list-style: none; }   // ← sin puntos
 }
+
+/* Links con mejor feedback y estado activo elegante */
+.nav-link {
+  position: relative;
+  font-weight: 600;
+  padding: .5rem .75rem;
+  border-radius: .5rem;
+  color: inherit;
+  transition: color .2s ease, background-color .2s ease, transform .18s ease;
+
+  &:hover,
+  &:focus-visible {
+    background-color: rgba($accent, .08);
+    color: $accent;
+    text-decoration: none;
+  }
+
+  /* página activa (marcada por navbar.js con aria-current) */
+  &[aria-current="page"] {
+    color: $accent;
+    text-decoration: none;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: .5rem; right: .5rem; bottom: -.35rem;
+      height: 2px;
+      border-radius: 2px;
+      background-color: $accent;
+    }
+  }
+}
+
+.navbar-nav li + li::before {
+  content: "";
+  display: inline-block;
+  width: 1px; height: 1rem;
+  background: rgba($text, .2);
+  margin: 0 .25rem;
+  vertical-align: middle;
+}
+
